@@ -1,8 +1,8 @@
 import Curso from "./clases/Curso.js";
 
-const jspoo = new Curso("POO Javascript","https://edteam-media.s3.amazonaws.com/specialities/medium/9aeb8331-58e3-4ca1-a6df-999f96fa24b8.jpeg",10)
+/*const jspoo = new Curso("POO Javascript","https://edteam-media.s3.amazonaws.com/specialities/medium/9aeb8331-58e3-4ca1-a6df-999f96fa24b8.jpeg",10)
 const python = new Curso("Python","https://edteam-media.s3.amazonaws.com/specialities/medium/0a1542ab-ecb2-4e05-a4b5-eddf5778bf57.jpeg",12)
-
+*/
 const elemento = document.getElementById("curso")
 
 function crearCursos(curso) {
@@ -30,6 +30,23 @@ function crearCursos(curso) {
     elemento.appendChild(hijoElemento)
 }
 
-crearCursos(jspoo)
-crearCursos(python)
+//Capturamos id del Formulario
+const myformulario = document.getElementById("formCursos")
+//Tomamos el evento submit al presionar el botón
+myformulario.addEventListener("submit",e=>{
+    //evitamos que se envien los datos de los input
+    e.preventDefault()
+    //tomamos la estructura del formulario
+    const mytarget = e.target
+    //Tomamos cualquier input con su name => mytarget.nombreCurso
+    //Tomamos el contenido del input => mytarget.nombreCurso.value
+
+    //Creamos el OBJETO
+    const myCurso = new Curso(mytarget.nombreCurso.value,mytarget.posterCurso.value,mytarget.nroclasesCurso.value)
+    crearCursos(myCurso)
+})
+
+
+/*crearCursos(jspoo)
+crearCursos(python)*/
 
