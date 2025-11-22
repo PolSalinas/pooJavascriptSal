@@ -12,7 +12,7 @@
     </header>
     <main>
         <div class="ed-grid">
-            <h1>EDcursos con POO</h1>
+            <h1>Registrar Cursos</h1>
         </div>
         <form action="" id="formCursos">
             <div class="ed-grid m-grid-4">
@@ -40,6 +40,112 @@
             </div>
         </form>
         <div class="ed-grid m-grid-4 s-grid-2" id="curso">
+        </div>
+
+
+        
+        <div class="ed-grid">
+            <h1>Registrar alumnos</h1>
+        </div>
+        <form action="" id="formAlumnos">
+            <div class="ed-grid m-grid-4">
+                <div class="form-item">
+                    <label>
+                        Nombre
+                        <input type="text" name="nombreAlum" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Apellido
+                        <input type="text" name="apellidoAlum" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Correo
+                        <input type="text" name="correoAlum" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Activo
+                        <input type="checkbox" name="activoAlum" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Cursos
+                        <select name="cursoAlum" id="">
+                            <option value="ahtml">Html</option>
+                            <option value="ajavascript">JavaScript</option>
+                            <option value="aphp">PHP</option>
+                            <option value="ajava">Java</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-item m-py-3">
+                    <input class="button" type="submit" value="Crear Curso">
+                </div>
+            </div>
+        </form>
+        <div class="ed-grid m-grid-4 s-grid-2" id="alumno">
+        </div>
+
+
+
+        <div class="ed-grid">
+            <h1>Registrar Docentes</h1>
+        </div>
+        <form action="" id="formDocentes">
+            <div class="ed-grid m-grid-4">
+                <div class="form-item">
+                    <label>
+                        Nombre
+                        <input type="text" name="nombreDoc" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Apellido
+                        <input type="text" name="apellidoDoc" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Correo
+                        <input type="text" name="correoDoc" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Activo
+                        <input type="checkbox" name="activoDoc" required>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Cursos Dictados
+                        <select name="cursoDoc" id="">
+                            <option value="ahtml">Html</option>
+                            <option value="ajavascript">JavaScript</option>
+                            <option value="aphp">PHP</option>
+                            <option value="ajava">Java</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-item">
+                    <label>
+                        Calificación
+                        <input type="number" min="1" name="califiDoc" required>
+                    </label>
+                </div>
+                <div class="form-item m-py-3">
+                    <input class="button" type="submit" value="Crear Curso">
+                </div>
+            </div>
+        </form>
+        <div class="ed-grid m-grid-4 s-grid-2" id="docente">
         </div>
     </main>
     <footer>
