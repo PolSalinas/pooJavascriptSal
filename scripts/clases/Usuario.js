@@ -16,7 +16,25 @@ export default class Usuario {
     getApellido(){
         return this.apellido
     }
+    getCorreo(){
+        return this.correo
+    }
+    getActivo(){
+        return this.activo
+    }
+
+    setNombre(nombre){
+        this.nombre=nombre
+    }
     setApellido(nuevoApellido){
         this.apellido=nuevoApellido
     }
+    setCorreo(correo){
+        this.correo = correo
+    }
+    setActivo(activo){
+        this.activo = activo
+    }
+
+    
 }

@@ -5,4 +5,10 @@ export default class Alumno extends Usuario{
         super(nombre,apellido,correo,activo)
         this.cursosTomados=cursosTomados
     }
+    getCursosTomados(){
+        return this.cursosTomados
+    }
+    setCursosTomados(newCursoTomado){
+        this.cursosTomados = newCursoTomado
+    }
 }

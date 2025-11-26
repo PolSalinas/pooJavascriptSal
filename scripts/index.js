@@ -93,9 +93,44 @@ console.log(alumno1.nom1)
 // ? ..........................................................
 
 const formAlumno = document.getElementById("formAlumnos")
+const contTablaAlum = document.getElementById("tablaAlumnos")
 
-formAlumno.addEventListener("submit",function (e) {
+// * const objAlumno = new Alumno("JOhn","Rucana","pol@gmail.com",true,"html")
+
+formAlumno.addEventListener("submit",function(e){
+    e.preventDefault()
+    const objAlumno = new Alumno(this.nombreAlum.value,this.apellidoAlum.value,this.correoAlum.value,this.activoAlum.value,this.cursoAlum.value)
+
+    const filaAlumno = document.createElement("tr")
+    const nomAlum = document.createElement("td")
+    const apeAlum = document.createElement("td")
+    const corAlum = document.createElement("td")
+    const actAlum = document.createElement("td")
+    const curAlum = document.createElement("td")
+
+    nomAlum.textContent = objAlumno.getNombre()
+    apeAlum.textContent = objAlumno.getApellido()
+    corAlum.textContent = objAlumno.getCorreo()
+    actAlum.textContent = objAlumno.getActivo()
+    curAlum.textContent = objAlumno.getCursosTomados()
+
+    filaAlumno.appendChild(nomAlum)
+    filaAlumno.appendChild(apeAlum)
+    filaAlumno.appendChild(corAlum)
+    filaAlumno.appendChild(actAlum)
+    filaAlumno.appendChild(curAlum)
+
+    contTablaAlum.appendChild(filaAlumno)
+    formAlumno.reset()
+})
+    
+
+
+
+
+
+/*formAlumno.addEventListener("submit",function (e) {
     e.preventDefault();
 
 
-})
+})*/

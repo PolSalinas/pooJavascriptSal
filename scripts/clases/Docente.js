@@ -6,4 +6,16 @@ export default class Docente extends Usuario{
         this.cursosDictados=cursosDictados
         this.calificacion=calificacion
     }
+    getCursosDictados(){
+        return this.cursosDictados
+    }
+    getCalificacion(){
+        return this.calificacion
+    }
+    setCursosDictados(newCursDictados){
+        this.cursosDictados=newCursDictados
+    }
+    setCalificacion(newCalificacion){
+        this.calificacion=newCalificacion
+    }
 }

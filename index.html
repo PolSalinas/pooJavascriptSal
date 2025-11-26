@@ -41,7 +41,7 @@
         </form>
         <div class="ed-grid m-grid-4 s-grid-2" id="curso">
         </div>
-
+        
 
         
         <div class="ed-grid">
@@ -64,7 +64,7 @@
                 <div class="form-item">
                     <label>
                         Correo
-                        <input type="text" name="correoAlum" required>
+                        <input type="email" name="correoAlum" required>
                     </label>
                 </div>
                 <div class="form-item">
@@ -77,10 +77,10 @@
                     <label>
                         Cursos
                         <select name="cursoAlum" id="">
-                            <option value="ahtml">Html</option>
-                            <option value="ajavascript">JavaScript</option>
-                            <option value="aphp">PHP</option>
-                            <option value="ajava">Java</option>
+                            <option value="HTML">Html</option>
+                            <option value="JAVASCRIPT">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="JAVA">Java</option>
                         </select>
                     </label>
                 </div>
@@ -89,7 +89,21 @@
                 </div>
             </div>
         </form>
-        <div class="ed-grid m-grid-4 s-grid-2" id="alumno">
+        <div class="table-container" style="padding-left: 100px;padding-right: 100px;">
+            <table>
+            <thead>
+                <tr>
+                    <td>NOMBRE</td>
+                    <td>APELLIDO</td>
+                    <td>CORREO</td>
+                    <td>ACTIVO</td>
+                    <td>CURSOS ELEGIDOS</td>
+                </tr>
+            </thead>
+            <tbody id="tablaAlumnos">
+
+            </tbody>
+        </table>
         </div>
 
 
@@ -114,7 +128,7 @@
                 <div class="form-item">
                     <label>
                         Correo
-                        <input type="text" name="correoDoc" required>
+                        <input type="email" name="correoDoc" required>
                     </label>
                 </div>
                 <div class="form-item">
@@ -145,8 +159,22 @@
                 </div>
             </div>
         </form>
-        <div class="ed-grid m-grid-4 s-grid-2" id="docente">
-        </div>
+        <div class="table-container" style="padding-left: 100px;padding-right: 100px;">
+            <table>
+            <thead>
+                <tr>
+                    <td>NOMBRE</td>
+                    <td>APELLIDO</td>
+                    <td>CORREO</td>
+                    <td>ACTIVO</td>
+                    <td>CURSOS DICTADOS</td>
+                </tr>
+            </thead>
+            <tbody id="tablaDocentes">
+
+            </tbody>
+        </table>
+        </div>  
     </main>
     <footer>
 
