@@ -123,14 +123,31 @@ formAlumno.addEventListener("submit",function(e){
     contTablaAlum.appendChild(filaAlumno)
     formAlumno.reset()
 })
-    
 
 
+// ? ..........................................................
+// ? --------------- CREAR DOCENTE -----------------------------
+// ? ..........................................................
 
+const formDocentes = document.getElementById("formDocentes")
+const tablaDocente = document.getElementById("tablaDocentes")
 
+const crearAlumno = (objDocente) =>{
+    tablaDocente.innerHTML=`
+        <tr>
+            <td>${objDocente.getNombre()}</td>
+            <td>${objDocente.getApellido()}</td>
+            <td>${objDocente.getCorreo()}</td>
+            <td>${objDocente.getActivo()}</td>
+            <td>${objDocente.getCursosDictados()}</td>
+            <td>${objDocente.getCalificacion()}</td>
+        </tr>
+    `
+}
 
-/*formAlumno.addEventListener("submit",function (e) {
-    e.preventDefault();
-
-
-})*/
+formDocentes.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    const estrDoc = e.target
+    const objetoDocente = new Docente(estrDoc.nombreDoc.value,estrDoc.apellidoDoc.value,estrDoc.correoDoc.value,estrDoc.activoDoc.value,estrDoc.cursoDoc.value,estrDoc.califiDoc.value)
+    crearAlumno(objetoDocente)
+})
