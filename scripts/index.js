@@ -7,8 +7,8 @@ import Alumno from "./clases/Alumno.js";
 // ? --------------- CREAR CURSO -----------------------------
 // ? .........................................................
 
-// * const jspoo = new Curso("POO Javascript","https://edteam-media.s3.amazonaws.com/specialities/medium/9aeb8331-58e3-4ca1-a6df-999f96fa24b8.jpeg",10)
-// * const python = new Curso("Python","https://edteam-media.s3.amazonaws.com/specialities/medium/0a1542ab-ecb2-4e05-a4b5-eddf5778bf57.jpeg",12)
+const jspoo = new Curso("POO Javascript","https://edteam-media.s3.amazonaws.com/specialities/medium/9aeb8331-58e3-4ca1-a6df-999f96fa24b8.jpeg",10)
+const python = new Curso("Python","https://edteam-media.s3.amazonaws.com/specialities/medium/0a1542ab-ecb2-4e05-a4b5-eddf5778bf57.jpeg",12)
 
 const elemento = document.getElementById("curso")
 
@@ -52,6 +52,10 @@ myformulario.addEventListener("submit",e=>{
     const myCurso = new Curso(mytarget.nombreCurso.value,mytarget.posterCurso.value,mytarget.nroclasesCurso.value)
     crearCursos(myCurso)
 })
+crearCursos(jspoo)
+crearCursos(python)
+
+
 
 // ? OJOOOOOOOOO podriamos usar "this" ya que es igual a "e.target", podriamos escribir this.nombreCurso para acceder al input.
 
@@ -150,4 +154,23 @@ formDocentes.addEventListener("submit",(e)=>{
     const estrDoc = e.target
     const objetoDocente = new Docente(estrDoc.nombreDoc.value,estrDoc.apellidoDoc.value,estrDoc.correoDoc.value,estrDoc.activoDoc.value,estrDoc.cursoDoc.value,estrDoc.califiDoc.value)
     crearAlumno(objetoDocente)
+})
+
+
+
+// ? ..........................................................
+// ? --------------- CREAR PESTAÑAS O TABS -----------------------------
+// ? ..........................................................
+
+const tab = document.querySelectorAll(".tabs h3")
+const tabContent = document.querySelectorAll(".tabs-container .tcontainer")
+
+tab.forEach((mytab,index)=>{
+    mytab.addEventListener("click",()=>{
+        tab.forEach(mytab2=>mytab2.classList.remove("active"))
+        mytab.classList.add("active")
+    
+        tabContent.forEach(contenttab=>contenttab.classList.remove("active"))
+        tabContent[index].classList.add("active")
+    })
 })

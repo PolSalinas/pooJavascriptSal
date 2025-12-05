@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://ux.ed.team/css/styles.css?201803301710">
     <title>Edteam</title>
 </head>
@@ -11,7 +12,178 @@
 
     </header>
     <main>
-        <div class="ed-grid">
+        <div class="container-flex">
+            <div class="container">
+                <div class="tabs">
+                    <h3 class="active">CURSOS</h3>
+                    <h3>ALUMNOS</h3>
+                    <h3>DOCENTES</h3>
+                </div>
+                <div class="tabs-container">
+                    <div class="tcontainer active">
+                        <div class="ed-grid">
+                            <h1>Registrar Cursos</h1>
+                        </div>
+                        <form action="" id="formCursos">
+                            <div class="ed-grid m-grid-4">
+                                <div class="form-item">
+                                    <label>
+                                        Nombre
+                                        <input type="text" name="nombreCurso" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Poster
+                                        <input type="text" name="posterCurso" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Nro Clases
+                                        <input type="number" min="1" name="nroclasesCurso" required>
+                                    </label>
+                                </div>
+                                <div class="form-item m-py-3">
+                                    <input class="button" type="submit" value="Crear Curso">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="ed-grid m-grid-4 s-grid-2" id="curso"></div>
+                    </div>
+                    <div class="tcontainer">
+                        <div class="ed-grid">
+                            <h1>Registrar alumnos</h1>
+                        </div>
+                        <form action="" id="formAlumnos">
+                            <div class="ed-grid m-grid-4">
+                                <div class="form-item">
+                                    <label>
+                                        Nombre
+                                        <input type="text" name="nombreAlum" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Apellido
+                                        <input type="text" name="apellidoAlum" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Correo
+                                        <input type="email" name="correoAlum" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Activo
+                                        <input type="checkbox" name="activoAlum" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Cursos
+                                        <select name="cursoAlum" id="">
+                                            <option value="HTML">HTML</option>
+                                            <option value="JAVASCRIPT">JAVASCRIPT</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="JAVA">JAVA</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-item m-py-3">
+                                    <input class="button" type="submit" value="Crear Curso">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="table-container" style="padding-left: 100px;padding-right: 100px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>NOMBRE</td>
+                                        <td>APELLIDO</td>
+                                        <td>CORREO</td>
+                                        <td>ACTIVO</td>
+                                        <td>CURSOS ELEGIDOS</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaAlumnos"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tcontainer">
+                        <div class="ed-grid">
+                            <h1>Registrar Docentes</h1>
+                        </div>
+                        <form action="" id="formDocentes">
+                            <div class="ed-grid m-grid-4">
+                                <div class="form-item">
+                                    <label>
+                                        Nombre
+                                        <input type="text" name="nombreDoc" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Apellido
+                                        <input type="text" name="apellidoDoc" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Correo
+                                        <input type="email" name="correoDoc" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Activo
+                                        <input type="checkbox" name="activoDoc" required>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Cursos Dictados
+                                        <select name="cursoDoc" id="">
+                                            <option value="HTML">HTML</option>
+                                            <option value="JAVASCRIPT">JAVASCRIPT</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="JAVA">JAVA</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="form-item">
+                                    <label>
+                                        Calificación
+                                        <input type="number" min="1" name="califiDoc" required>
+                                    </label>
+                                </div>
+                                <div class="form-item m-py-3">
+                                    <input class="button" type="submit" value="Crear Curso">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="table-container" style="padding-left: 100px;padding-right: 100px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td>NOMBRE</td>
+                                        <td>APELLIDO</td>
+                                        <td>CORREO</td>
+                                        <td>ACTIVO</td>
+                                        <td>CURSOS DICTADOS</td>
+                                        <td>CALIFICACIÓN</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaDocentes"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="ed-grid">
             <h1>Registrar Cursos</h1>
         </div>
         <form action="" id="formCursos">
@@ -39,11 +211,11 @@
                 </div>
             </div>
         </form>
-        <div class="ed-grid m-grid-4 s-grid-2" id="curso"></div>
+        <div class="ed-grid m-grid-4 s-grid-2" id="curso"></div>-->
         
 
         
-        <div class="ed-grid">
+        <!--<div class="ed-grid">
             <h1>Registrar alumnos</h1>
         </div>
         <form action="" id="formAlumnos">
@@ -101,11 +273,11 @@
             </thead>
             <tbody id="tablaAlumnos"></tbody>
         </table>
-        </div>
+        </div>-->
 
 
 
-        <div class="ed-grid">
+        <!--<div class="ed-grid">
             <h1>Registrar Docentes</h1>
         </div>
         <form action="" id="formDocentes">
@@ -170,7 +342,7 @@
             </thead>
             <tbody id="tablaDocentes"></tbody>
         </table>
-        </div>  
+        </div>-->  
     </main>
     <footer>
 

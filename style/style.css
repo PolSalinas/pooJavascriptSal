@@ -1,0 +1,37 @@
+.container-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 1200px;
+}
+.tabs{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.tabs h3{
+    font-size: 15px;
+    text-align: center;
+    padding: 12px 0px;
+    cursor: pointer;
+}
+.tabs h3.active{
+    background-color: rgb(86, 86, 221);
+    color: white;
+}
+.tabs h3:hover{
+    background-color: rgb(86, 86, 221);
+    color: white;
+}
+.tabs-container{
+    border: 3px dashed rgb(86, 86, 221);
+    border-radius: 20px;
+}
+.tabs-container .tcontainer{
+    padding: 40px;
+    display: none;
+}
+.tabs-container .tcontainer.active{
+    display: block;
+}
