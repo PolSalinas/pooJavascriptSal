@@ -11,6 +11,7 @@ const jspoo = new Curso("POO Javascript","https://edteam-media.s3.amazonaws.com/
 const python = new Curso("Python","https://edteam-media.s3.amazonaws.com/specialities/medium/0a1542ab-ecb2-4e05-a4b5-eddf5778bf57.jpeg",12)
 
 const elemento = document.getElementById("curso")
+const listaCursos=[]
 
 function crearCursos(curso) {
     // ! Creamos un elemento en el DOM
@@ -36,6 +37,34 @@ function crearCursos(curso) {
     // ! "hijoElemento" es hijo de "elemento" en el DOM
     elemento.appendChild(hijoElemento)
 }
+crearCursos(jspoo)
+crearCursos(python)
+
+
+// ? LLEVAMOS EL NOMBRE DE LOS CURSOS A LOS OTROS SELECT DE ALUMNO Y DOCENTE
+const updateCursosAl = document.getElementById("updateCursosAl")
+const updateCursosDoc = document.getElementById("updateCursosDoc")
+function updateSelect() {
+    // ! Limpiamos las opciones anteriores del select (excepto la primera opción estática)
+    // ! Empezamos desde el índice 1 para dejar la opción "-- Seleccione un curso --"
+    while(updateCursosAl.options.length>1){
+        updateCursosAl.remove(1);
+        updateCursosDoc.remove(1);
+    }
+    listaCursos.forEach(lcursos=>{
+        const newoptionAl = document.createElement("option")
+        const newoptionDoc = document.createElement("option")
+        newoptionAl.textContent=lcursos.getNombre()
+        newoptionDoc.textContent=lcursos.getNombre()
+        updateCursosAl.appendChild(newoptionAl)
+        updateCursosDoc.appendChild(newoptionDoc)
+    })
+}
+listaCursos.push(jspoo)
+listaCursos.push(python)
+updateSelect()
+
+
 
 // ! Capturamos id del Formulario
 const myformulario = document.getElementById("formCursos")
@@ -45,16 +74,16 @@ myformulario.addEventListener("submit",e=>{
     e.preventDefault()
     // ! tomamos la estructura del formulario
     const mytarget = e.target
+    console.log(mytarget)
     // ! Tomamos cualquier input con su name => mytarget.nombreCurso
     // ! Tomamos el contenido del input => mytarget.nombreCurso.value
 
     // ! Creamos el OBJETO
     const myCurso = new Curso(mytarget.nombreCurso.value,mytarget.posterCurso.value,mytarget.nroclasesCurso.value)
     crearCursos(myCurso)
+    listaCursos.push(myCurso)
+    updateSelect()
 })
-crearCursos(jspoo)
-crearCursos(python)
-
 
 
 // ? OJOOOOOOOOO podriamos usar "this" ya que es igual a "e.target", podriamos escribir this.nombreCurso para acceder al input.
