@@ -40,11 +40,17 @@ function crearCursos(curso) {
 crearCursos(jspoo)
 crearCursos(python)
 
-
+// ? -----------------------------------------------------------------------
 // ? LLEVAMOS EL NOMBRE DE LOS CURSOS A LOS OTROS SELECT DE ALUMNO Y DOCENTE
+// ? ------------------------------------------------------------------------
 const updateCursosAl = document.getElementById("updateCursosAl")
 const updateCursosDoc = document.getElementById("updateCursosDoc")
+function generarValue(contador){
+    contador++
+    return contador
+}
 function updateSelect() {
+    let contador=0;
     // ! Limpiamos las opciones anteriores del select (excepto la primera opción estática)
     // ! Empezamos desde el índice 1 para dejar la opción "-- Seleccione un curso --"
     while(updateCursosAl.options.length>1){
@@ -53,11 +59,16 @@ function updateSelect() {
     }
     listaCursos.forEach(lcursos=>{
         const newoptionAl = document.createElement("option")
+        newoptionAl.value=generarValue(contador)
+
         const newoptionDoc = document.createElement("option")
+        newoptionDoc.value=newoptionAl.value
+
         newoptionAl.textContent=lcursos.getNombre()
         newoptionDoc.textContent=lcursos.getNombre()
         updateCursosAl.appendChild(newoptionAl)
         updateCursosDoc.appendChild(newoptionDoc)
+        contador=generarValue(contador)
     })
 }
 listaCursos.push(jspoo)
@@ -130,9 +141,15 @@ const contTablaAlum = document.getElementById("tablaAlumnos")
 
 // * const objAlumno = new Alumno("JOhn","Rucana","pol@gmail.com",true,"html")
 
+// ! Con esta función obtenemos los cursos seleccionados guardandolos en un array
+function obtenerOptionAl() {
+    const captionOption = Array.from(updateCursosAl.selectedOptions).map(opcion=>opcion.textContent).join(" * ")
+    console.log(captionOption)
+    return captionOption
+}
 formAlumno.addEventListener("submit",function(e){
     e.preventDefault()
-    const objAlumno = new Alumno(this.nombreAlum.value,this.apellidoAlum.value,this.correoAlum.value,this.activoAlum.value,this.cursoAlum.value)
+    const objAlumno = new Alumno(this.nombreAlum.value,this.apellidoAlum.value,this.correoAlum.value,this.activoAlum.value,obtenerOptionAl())
 
     const filaAlumno = document.createElement("tr")
     const nomAlum = document.createElement("td")
@@ -165,6 +182,11 @@ formAlumno.addEventListener("submit",function(e){
 const formDocentes = document.getElementById("formDocentes")
 const tablaDocente = document.getElementById("tablaDocentes")
 
+const obtenerOptionDoc = ()=>{
+    const captionOption = Array.from(updateCursosDoc.selectedOptions).map(opcion=>opcion.textContent).join(" * ")
+    return captionOption
+}
+
 const crearAlumno = (objDocente) =>{
     tablaDocente.innerHTML=`
         <tr>
@@ -181,7 +203,7 @@ const crearAlumno = (objDocente) =>{
 formDocentes.addEventListener("submit",(e)=>{
     e.preventDefault()
     const estrDoc = e.target
-    const objetoDocente = new Docente(estrDoc.nombreDoc.value,estrDoc.apellidoDoc.value,estrDoc.correoDoc.value,estrDoc.activoDoc.value,estrDoc.cursoDoc.value,estrDoc.califiDoc.value)
+    const objetoDocente = new Docente(estrDoc.nombreDoc.value,estrDoc.apellidoDoc.value,estrDoc.correoDoc.value,estrDoc.activoDoc.value,obtenerOptionDoc(),estrDoc.califiDoc.value)
     crearAlumno(objetoDocente)
 })
 
